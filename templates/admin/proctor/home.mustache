@@ -1,0 +1,83 @@
+{{!
+    This file is part of Moodle - http://moodle.org/local/empexport/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_empexport/admin/proctor/home
+
+    Example context (json):
+    {
+    }
+}}
+
+<h4>{{proctorhometabletitle}}</h4>
+<p>
+    <a href="edit.php"><button class="btn btn-outline-primary">{{newproctorlink}}</button> </a>
+</p>
+
+
+<div class="card">
+    <div class="card-header">
+        <h5>{{proctorhometabletitle}}</h5>
+
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                
+                <th>{{proctornamecoltitle}}</th>
+                <th>{{proctoremailcoltitle}}</th>
+                <th>{{assignedexamcountcoltitle}}</th>
+                <th>{{statuscoltitle}}</th>
+                <th>{{actionscoltitle}}</th>
+            </tr>
+        </thead>
+        {{#proctorlist}}
+            <tr>
+                <td>{{ProctorName}}</td>
+                <td>{{ProctorEmailID}}</td>
+                <td>{{AssignedExamsCount}}</td>
+                <td>
+                    {{#IsActive}} {{titleactive}} {{/IsActive}}
+                    {{^IsActive}} {{titleinactive}} {{/IsActive}}
+                </td>
+                <td>
+                    <input type="button" class="btn btn-primary" value="Edit" onclick="location.href='{{pluginurl}}admin/proctor/edit.php?proctoremailid={{ProctorEmailID}}'" />
+                </td>
+            </tr>
+        {{/proctorlist}}
+        
+    </table>
+    
+    {{^proctorlist}}
+    <tr>Data not Found!</tr>            
+    {{/proctorlist}}
+
+    <div class="col-sm-12 text-center mt-3 mb-3">
+        {{#pageindexarray}}
+            {{#.}}
+                {{#isselected}}
+                <a href="?pageno={{pagenoi}}"><button class="btn btn-primary">{{pagenoi}} </button> </a>
+                {{/isselected}}
+                {{^isselected}}
+                <a href="?pageno={{pagenoi}}"><button class="btn btn-outline-primary">{{pagenoi}} </button> </a>
+                {{/isselected}}
+            {{/.}}            
+        {{/pageindexarray}}
+    </div>
+
+</div>
+
+

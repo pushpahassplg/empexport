@@ -1,0 +1,40 @@
+{{!
+    This file is part of Moodle - http://moodle.org/local/empexport/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template local_empexport/navbar
+
+    Example context (json):
+    {
+    }
+}}
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 border-bottom box-shadow" style="background-color:#6761b5">
+    <h5 class="my-0 mr-md-auto font-weight-normal"><img src="{{menulogo}}" alt="Eklavvya" style="max-width: 100px;"></h5>
+    <nav class="my-2 my-md-0 mr-md-3" >
+        <a class="p-2 text-light" href="{{pluginurl}}admin/index.php">{{navmenuhomelinktitle}}</a>
+        {{#isadmin}}            
+        <a class="p-2 text-light" href="{{pluginurl}}admin/exam/index.php">{{navmenuexamslinktitle}}</a>
+        <a class="p-2 text-light" href="{{pluginurl}}admin/proctor/index.php">{{navmenuproctorslinktitle}}</a>
+        <a class="p-2 text-light" href="#">{{navmenuexaminerslinktitle}}</a>
+        <a class="p-2 text-light" href="#">{{navmenuresultlinktitle}}</a>
+        <a class="p-2 text-light" href="#">{{navmenuuserlogslinktitle}}</a>
+        {{/isadmin}}        
+    </nav>
+  </div>
+
+
+
